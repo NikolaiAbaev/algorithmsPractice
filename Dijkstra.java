@@ -63,8 +63,6 @@ public class Dijkstra {
     public static void main(String[] args) {
 
         HashMap<String, HashMap<String, Integer>> graph = new HashMap<>();
-        HashMap<String, Integer> costs = new HashMap<>();
-        HashMap<String, String> parents = new HashMap<>();
 
         // Setting up the Graph
         HashMap<String, Integer> neighborsA = new HashMap<>();
