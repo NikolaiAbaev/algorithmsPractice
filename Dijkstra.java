@@ -47,18 +47,6 @@ public class Dijkstra {
         System.out.printf("The path is '%s' and its weight is %d.\n", String.join(" -> ", path), costs.get(finish));
     }
 
-
-    public static String pathCreator(String s) {
-        StringBuilder res = new StringBuilder();
-        for (int i = s.length() - 1; i > -1; i--) {
-            res.append(s.charAt(i));
-            if (i != 0) {
-                res.append(" -> ");
-            }
-        }
-        return res.toString();
-    }
-
     public static String findLowestEdge(HashMap<String, Integer> vertex, HashSet<String> visited) {
         int min = Integer.MAX_VALUE;
         String minEntry = null;
