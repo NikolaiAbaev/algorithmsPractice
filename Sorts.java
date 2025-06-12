@@ -1,6 +1,6 @@
 public class Sorts {
 
-    public static void selectionSortUpdate (int[] array) {
+    public static void selectionSortOwn (int[] array) {
         int n = array.length;
         int temp;
         int index;
@@ -14,12 +14,29 @@ public class Sorts {
                     index = j;
                 }
             }
-            array[index] = array[i];
-            array[i] = temp;
+            if (index != i) {
+                array[index] = array[i];
+                array[i] = temp;
+            }
         }
     }
+    public static void selectionSortTextbook(int[] numbers) {
+        for (int i = 0; i < numbers.length - 1; i++) {
+            // Find index of smallest remaining element
+            int indexSmallest = i;
+            for (int j = i + 1; j < numbers.length; j++) {
+                if (numbers[j] < numbers[indexSmallest]) {
+                    indexSmallest = j;
+                }
+            }
 
-    public static void selectionSortOriginal (int[] array) {
+            // Swap numbers[i] and numbers[indexSmallest]
+            int temp = numbers[i];
+            numbers[i] = numbers[indexSmallest];
+            numbers[indexSmallest] = temp;
+        }
+    }
+    public static void selectionSortInefficient (int[] array) {
         int n = array.length;
         int temp;
         for (int i = 0; i < n - 1; i++) {
@@ -33,5 +50,22 @@ public class Sorts {
         }
     }
 
+    public static void insertionSort (int[] array) {
+        int temp;
+        int n = array.length;
 
+        for (int i = 1; i < n; i++) {
+            int index = i;
+            while (index > 0 && array[index] < array[index - 1]) {
+                temp = array[index];
+                array[index] = array[index - 1];
+                array[index - 1] = temp;
+                index -= 1;
+            }
+        }
+    }
+
+    public static void bubbleSort (int[] array) {
+        return;
+    }
 }
