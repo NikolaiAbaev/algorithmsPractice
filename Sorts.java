@@ -60,9 +60,67 @@ public class Sorts {
                 temp = array[index];
                 array[index] = array[index - 1];
                 array[index - 1] = temp;
-                index -= 1;
+                index --;
             }
         }
+    }
+
+
+    private static void merge (int[] array, int[] left, int[] right) {
+        int leftN = left.length;
+        int rightN = right.length;
+        int i = 0, j = 0, k = 0;
+
+        while (i < leftN && j < rightN) {
+            if (left[i] <= right[j]) {
+                array[k] = left[i];
+                i++;
+            } else {
+                array[k] = right[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < leftN) {
+            array[k] = left[i];
+            k++;
+            i++;
+        }
+
+        while (j < rightN) {
+            array[k] = right[j];
+            k++;
+            j++;
+        }
+    }
+
+    public static void mergeSort (int[] array) {
+        int n = array.length;
+        if (n < 2) {return;}
+
+        int mid = n / 2;
+        int[] left = new int[mid];
+        int[] right = new int[n - mid];
+
+        for (int i = 0; i < mid; i++) {
+            left[i] = array[i];
+        }
+        for (int i = mid; i < n; i++) {
+            right[i - mid] = array[i];
+        }
+
+        mergeSort(left);
+        mergeSort(right);
+        merge(array, left, right);
+    }
+
+    public static void shellSort (int[] array) {
+        return;
+    }
+
+    public static void quickSort (int[] array) {
+        return;
     }
 
     public static void bubbleSort (int[] array) {
